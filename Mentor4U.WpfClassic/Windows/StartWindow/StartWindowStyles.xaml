@@ -47,10 +47,42 @@
     <!-- #endregion HEADER -->
     
     <!-- #region BUTTON -->
-    <Style x:Key="StyleButtonDefault" TargetType="{x:Type Button}">
-        <Setter Property="Margin" Value="10 0"/>
-        <Setter Property="Padding" Value="5"/>
-        <Setter Property="Foreground" Value="White"/>
+    <Style x:Key="StyleButtonBase" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="20"></Setter>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                                Margin="{TemplateBinding Margin}"
+                                Padding="{TemplateBinding Padding}"
+                                CornerRadius="7">
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+        
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+                
+                <Setter Property="Background" Value="Chocolate"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="StyleButtonDefault" TargetType="{x:Type Button}"
+           BasedOn="{StaticResource StyleButtonBase}">
+        <Style.Setters>
+            <Setter Property="Margin" Value="10 0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Foreground" Value="White"/>    
+        </Style.Setters>
     </Style>
     
     <Style x:Key="StyleButtonFindMentor" TargetType="{x:Type Button}"
@@ -60,7 +92,7 @@
     
     <Style x:Key="StyleButtonNewMentor" TargetType="{x:Type Button}"
            BasedOn="{StaticResource StyleButtonDefault}">
-        <Setter Property="Background" Value="DarkGreen"/>
+        <Setter Property="Background" Value="DarkGray"/>
     </Style>
     <!-- #endregion BUTTON -->
 </ResourceDictionary>
