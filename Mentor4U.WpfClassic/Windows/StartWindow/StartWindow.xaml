@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Mentor4U.WpfClassic.Windows.StartWindow"
         Title="{StaticResource AppTitle}"
-        Height="450" Width="800"
+        Height="600" Width="800"
         WindowState="Normal" WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
@@ -51,10 +51,9 @@
         
         <StackPanel Grid.Row="2" 
                     Style="{StaticResource StyleButtonPanel}">
-            <Button Content="Найти ментора"
-                    Style="{StaticResource StyleButtonFindMentor}"/>
-            <Button Content="Стать ментором"
-                    Style="{StaticResource StyleButtonNewMentor}"/>
+            <Button Content="Авторизация"
+                    Style="{StaticResource StyleButtonAuth}"
+                    Click="ButtonAuth_OnClick"/>
         </StackPanel>
     </Grid>
 </Window>
