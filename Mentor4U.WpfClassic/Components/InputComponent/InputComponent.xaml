@@ -11,7 +11,9 @@
     </UserControl.Resources>
     
     <StackPanel Orientation="Horizontal">
-        <Label x:Name="Label" Content="Label"/>
-        <TextBox x:Name="Input"/>
+        <Label Content="{Binding LabelName, Mode=OneWay}"
+               Style="{StaticResource StyleLabel}"/>
+        <TextBox Text="{Binding   Input}"
+                 Style="{StaticResource StyleInput}"/>
     </StackPanel>
 </UserControl>
