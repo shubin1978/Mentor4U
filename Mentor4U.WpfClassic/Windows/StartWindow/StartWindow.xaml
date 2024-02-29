@@ -2,16 +2,18 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Mentor4U.WpfClassic.Windows.StartWindow"
+        xmlns:component2="clr-namespace:Mentor4U.WpfClassic.Components.VisualComponent"
         Title="{StaticResource AppTitle}"
         Height="600" Width="800"
-        WindowState="Normal" WindowStyle="None"
+        WindowState="Normal"
+        WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     
     <Window.Background>
         <ImageBrush Opacity="0.9">
             <ImageBrush.ImageSource>
-                <BitmapImage UriSource="/Resourses/Images/background_start_window.jpg"/>
+                <BitmapImage UriSource="/Resourses/Images/background2_start_window.jpg"/>
             </ImageBrush.ImageSource>
         </ImageBrush>
     </Window.Background>
@@ -25,20 +27,26 @@
         </ResourceDictionary>
     </Window.Resources>
     
-    <Grid>
+    <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         
-        <StackPanel Grid.Row="0"
+        <StackPanel Orientation="Horizontal"  Grid.Row="0"
                     HorizontalAlignment="Right">
+            <Button
+                Content="{StaticResource IconMin}"
+                Style="{StaticResource StyleButtonInterface}"
+                Click="ButtonMinimize_OnClick"/>
+            
             <Button 
-                    Content="{StaticResource IconClose}"
-                    Style="{StaticResource StyleButtonBase}"
-                    Click="ButtonClose_OnClick"/>
+                Content="{StaticResource IconClose2}"
+                Style="{StaticResource StyleButtonInterface}"
+                Click="ButtonClose_OnClick"/>
         </StackPanel>
         
         <StackPanel Grid.Row="1" 
@@ -48,8 +56,43 @@
             <TextBlock Text="Сервис для поиска ментора и для поиска учеников"
                        Style="{StaticResource StyleSubHeader}"/>
         </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Grid ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <component2:VisualComponent Grid.Column="0" x:Name="Mentors">
+                    <component2:VisualComponent.Picture>
+                        <Image Source="../../Resourses/Images/Picture2.png"></Image>
+                    </component2:VisualComponent.Picture>
+                    <component2:VisualComponent.Text>
+                        Более 100 менторов
+                    </component2:VisualComponent.Text>
+                </component2:VisualComponent>
+                
+                <component2:VisualComponent Grid.Column="1" x:Name="Students">
+                    <component2:VisualComponent.Picture>
+                        <Image Source="../../Resourses/Images/Picture4.png"></Image>
+                    </component2:VisualComponent.Picture>
+                    <component2:VisualComponent.Text>
+                        10000+ довольных клиентов
+                    </component2:VisualComponent.Text>
+                </component2:VisualComponent>
+                
+                <component2:VisualComponent Grid.Column="2" x:Name="Hands">
+                    <component2:VisualComponent.Picture>
+                        <Image Source="../../Resourses/Images/Picture3.png"></Image>
+                    </component2:VisualComponent.Picture>
+                    <component2:VisualComponent.Text>
+                        Общение без посредников
+                    </component2:VisualComponent.Text>
+                </component2:VisualComponent>
+            </Grid>
+        </StackPanel>
         
-        <StackPanel Grid.Row="2" 
+        <StackPanel Grid.Row="3" 
                     Style="{StaticResource StyleButtonPanel}">
             <Button Content="Авторизация"
                     Style="{StaticResource StyleButtonAuth}"

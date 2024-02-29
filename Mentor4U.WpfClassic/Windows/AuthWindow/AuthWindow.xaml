@@ -7,7 +7,7 @@
         Height="600" Width="800"
         WindowState="Normal" WindowStyle="None"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Background="LightGray"
+        Background="Transparent" AllowsTransparency="True"
         MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown">
   <Window.Resources>
       <ResourceDictionary>
@@ -20,12 +20,11 @@
   </Window.Resources>
     
     <Border BorderBrush="Black" BorderThickness="6"
-            CornerRadius="50"
-            MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown">
+            CornerRadius="50">
         <Border.Background>
-            <ImageBrush Opacity="0.9">
+            <ImageBrush Opacity="0.5">
                 <ImageBrush.ImageSource>
-                    <BitmapImage UriSource="/Resourses/Images/background_auth_window.png"/>
+                    <BitmapImage UriSource="/Resourses/Images/background3_auth_window.png"/>
                 </ImageBrush.ImageSource>
             </ImageBrush>
         </Border.Background>
@@ -34,14 +33,14 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
         
             <StackPanel Grid.Row="0"
                         HorizontalAlignment="Right">
                 <Button 
-                    Content="{StaticResource IconClose}"
-                    Style="{StaticResource StyleButtonBase}"/>
+                    Content="{StaticResource IconClose2 }"
+                    Style="{StaticResource StyleButtonBase}" />
             </StackPanel>
         
             <StackPanel Grid.Row="1">

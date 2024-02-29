@@ -16,7 +16,7 @@ public partial class InputComponent : UserControl, INotifyPropertyChanged
 
     private string _input;
     public string Input 
-    { 
+    {  
         get => _input; 
         set => SetField(ref _input, value); }
     public InputComponent()

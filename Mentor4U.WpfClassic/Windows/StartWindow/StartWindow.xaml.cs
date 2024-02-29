@@ -15,8 +15,10 @@ public partial class StartWindow : Window
     private void OnClosing(object? sender, CancelEventArgs e)
     {
         var result = MessageBox.Show(
-            owner: this, messageBoxText: "Вы действительно хотите закрыть приложение?",
-            caption: App.Current.Resources["AppTitle"].ToString(), MessageBoxButton.YesNo,
+            owner: this, 
+            messageBoxText: "Вы действительно хотите закрыть приложение?",
+            caption: App.Current.Resources["AppTitle"].ToString(),
+            MessageBoxButton.YesNo,
             icon: MessageBoxImage.Question);
         if (result == MessageBoxResult.No)
         {
@@ -34,5 +36,10 @@ public partial class StartWindow : Window
         new AuthWindow.AuthWindow().Show();
         this.Closing -= OnClosing;
         this.Close();
+    }
+
+    private void ButtonMinimize_OnClick(object sender, RoutedEventArgs e)
+    {
+        this.WindowState = WindowState.Minimized;
     }
 }

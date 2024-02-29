@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- #region ALIGNMENT -->
+    <Style x:Key="StyleCentreAlignment" TargetType="{x:Type FrameworkElement}">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <!-- #endregion ALIGNMENT -->
+    <!-- #region ELEMENTS -->
+    <Style x:Key="StyleLabel" TargetType="{x:Type ContentControl}">
+        <Style.Setters>
+           <Setter Property="Padding" Value="5 15"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="StyleTextBlock" TargetType="{x:Type TextBlock }">
+        <Style.Setters>
+            <Setter Property="Padding" Value="5 20"/>
+        </Style.Setters>
+    </Style>
+    
+    <!-- #region ELEMENTS -->
+</ResourceDictionary>
