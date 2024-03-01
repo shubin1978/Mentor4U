@@ -10,4 +10,5 @@
     <Style x:Key="StyleInput" TargetType="{x:Type TextBox}">
         <Setter Property="Width" Value="300"></Setter>
     </Style>
+    
 </ResourceDictionary>

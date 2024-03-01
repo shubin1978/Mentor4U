@@ -19,4 +19,9 @@ public partial class AuthWindow : Window
     {
         MessageBox.Show($"{InputLogin.Input}  {InputPassword.Input}");
     }
+
+    private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
 }

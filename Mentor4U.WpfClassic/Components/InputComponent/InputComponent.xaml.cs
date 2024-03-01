@@ -22,7 +22,7 @@ public partial class InputComponent : UserControl, INotifyPropertyChanged
     public InputComponent()
     {
         InitializeComponent();
-        DataContext = this;
+       // DataContext = this;
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;

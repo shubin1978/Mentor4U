@@ -33,34 +33,73 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
         
             <StackPanel Grid.Row="0"
                         HorizontalAlignment="Right">
                 <Button 
                     Content="{StaticResource IconClose2 }"
-                    Style="{StaticResource StyleButtonBase}" />
+                    Style="{StaticResource StyleButtonBase}" 
+                    Click="ButtonClose_OnClick"/>
             </StackPanel>
         
             <StackPanel Grid.Row="1">
-                <component:InputComponent x:Name="InputLogin"
-                                          LabelName="Login"
+                <component:InputComponent x:Name="InputLogin" Style="{StaticResource StyleInputComponent}"
+                                           LabelName="Login"
                                           Input="TEST"/>
                 
-                <component:InputComponent x:Name="InputPassword" 
+                <component:InputComponent x:Name="InputPassword"  Style="{StaticResource StyleInputComponent}"
                                           LabelName="Password"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+               <Canvas>
+                   <Path Stroke="Green">
+                       <Path.Data>
+                           <PathGeometry x:Name="Path" Figures="M 30,30 L 760,30 L 760,400 L 30,400 Z"/>
+                       </Path.Data>
+                   </Path>
+                   <Ellipse Width="5" Height="5" Fill="Aqua">
+                       <Ellipse.Triggers>
+                           <EventTrigger RoutedEvent="Window.Loaded">
+                               <BeginStoryboard>
+                                   <Storyboard>
+                                       <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)"
+                                                                 Duration="0:0:10" RepeatBehavior="Forever"
+                                                                 PathGeometry="{Binding
+                                                                  ElementName=Path}" Source="Y" >
+                                       </DoubleAnimationUsingPath>
+                                       <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)"
+                                                                 Duration="0:0:10" RepeatBehavior="Forever"
+                                                                 PathGeometry="{Binding
+                                                                 ElementName=Path}" Source="X" >
+                                       </DoubleAnimationUsingPath>
+                                   </Storyboard>
+                               </BeginStoryboard>
+                           </EventTrigger>
+                       </Ellipse.Triggers>
+                   </Ellipse>
+               </Canvas>
             </StackPanel>
         
             <StackPanel Grid.Row="2" 
                         Style="{StaticResource StyleButtonPanel}">
-                <Button Content="Авторизоваться"
-                        Style="{StaticResource StyleButtonAuth}"
-                        Click="ButtonBase_OnClick"/>
-                <Button Content="Восстановить пароль"
-                        Style="{StaticResource StyleButtonRestore}"/>
-                <Button Content="Регистрация"
-                        Style="{StaticResource StyleButtonRegister}"/>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="Авторизоваться"
+                            Style="{StaticResource StyleButtonAuth}"
+                            Click="ButtonBase_OnClick"
+                            Width="{Binding ElementName=ButtonRestore, Path=ActualWidth}"/>
+                    <Button Grid.Column="1" x:Name="ButtonRestore" Content="Восстановить пароль"
+                            Style="{StaticResource StyleButtonRestore}"/>
+                    <Button Grid.Column="2" Content="Регистрация"
+                            Style="{StaticResource StyleButtonRegister}"
+                            Width="{Binding ElementName=ButtonRestore, Path=ActualWidth}"/>
+                </Grid>
             </StackPanel>
         </Grid>
     </Border>

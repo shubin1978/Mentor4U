@@ -27,7 +27,7 @@
         </ResourceDictionary>
     </Window.Resources>
     
-    <Grid ShowGridLines="True">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="1.5*"/>
@@ -57,7 +57,7 @@
                        Style="{StaticResource StyleSubHeader}"/>
         </StackPanel>
         <StackPanel Grid.Row="2">
-            <Grid ShowGridLines="True">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
